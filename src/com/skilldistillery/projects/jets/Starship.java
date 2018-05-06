@@ -5,6 +5,7 @@ public abstract class Starship {
 	public int speed;
 	public int range;
 	public long price;
+	public String pilot;
 	
 	
 	public int flightTime() {
@@ -15,20 +16,21 @@ public abstract class Starship {
 	}
 	
 	
-	public Starship(String model, int speed, int range, long price) {
+	public Starship(String model, int speed, int range, long price, String pilot) {
 		super();
 		this.model = model;
 		this.speed = speed;
 		this.range = range;
 		this.price = price;
+		this.pilot = pilot;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Starship [model=").append(model).append(", speed=").append(speed).append(", range=")
-				.append(range).append(", price=").append(price).append(", flightTime()=").append(flightTime())
-				.append(" hours.]");
+				.append(range).append(", price=").append(price).append(", flightTime=").append(flightTime())
+				.append(" hours").append(", pilot=").append(pilot);
 		return builder.toString();
 	}
 

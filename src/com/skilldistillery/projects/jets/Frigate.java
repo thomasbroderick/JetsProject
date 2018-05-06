@@ -2,8 +2,8 @@ package com.skilldistillery.projects.jets;
 
 public class Frigate extends Starship implements Battle, Exploration {
 
-	public Frigate(String model, int speed, int range, int price) {
-		super(model, speed, range, price);
+	public Frigate(String model, int speed, int range, int price, String pilot) {
+		super(model, speed, range, price, pilot);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -36,8 +36,8 @@ public class Frigate extends Starship implements Battle, Exploration {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Frigate [model=").append(model).append(", speed=").append(speed).append(", range=")
-				.append(range).append(" hours, price=").append(price).append(", flightTime()=").append(flightTime())
-				.append("]");
+				.append(range).append(" hours, price=").append(price).append(", flightTime=").append(flightTime())
+				.append(" hours").append(", pilot=").append(pilot);
 		return builder.toString();
 	}
 

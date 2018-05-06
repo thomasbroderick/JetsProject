@@ -13,15 +13,15 @@ public class StarPort {
 
 	public void run() {
 		ships = new Starship[100];
-		Cruiser cr1 = new Cruiser("Light Cruiser", 800, 3400, 560000);
+		Cruiser cr1 = new Cruiser("Light Cruiser", 800, 3400, 560000, "Bob McCoy");
 		ships[0] = cr1;
-		Cruiser cr2 = new Cruiser("Heavy Cruiser", 600, 3200, 660000);
+		Cruiser cr2 = new Cruiser("Heavy Cruiser", 600, 3200, 660000, "U'dosh Nb");
 		ships[1] = cr2;
-		Frigate fr1 = new Frigate("Scout", 1200, 6000, 700000);
+		Frigate fr1 = new Frigate("Scout", 1200, 6000, 700000, "Diana Jones");
 		ships[2] = fr1;
-		ScienceVessel sv1 = new ScienceVessel("Tugboat", 440, 5000, 604000, 6);
+		ScienceVessel sv1 = new ScienceVessel("Tugboat", 440, 5000, 604000, "Rob Burgundy", 6);
 		ships[3] = sv1;
-		StarshipImpl si1 = new StarshipImpl("Enterprise", 1000, 9900, 1000000);
+		StarshipImpl si1 = new StarshipImpl("Enterprise", 1000, 9900, 1000000, "James T. Kirk");
 		ships[4] = si1;
 		displayUserMenu();
 
@@ -109,6 +109,8 @@ public class StarPort {
 
 		System.out.println("What is the model of the new Starship?");
 		newShip.model = kb.nextLine();
+		System.out.println("What is the pilot's name?");
+		newShip.pilot = kb.nextLine();
 		System.out.println("What is the speed of the new Starship in MPH?");
 		newShip.speed = kb.nextInt();
 		System.out.println("What is the range of the new Starship in miles?");
@@ -154,6 +156,7 @@ public class StarPort {
 				break;
 			case "7":
 				displayShipChoices();
+				break;
 			case "8":
 				System.exit(0);
 			}

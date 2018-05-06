@@ -17,8 +17,8 @@ public class ScienceVessel extends Starship implements Support {
 		this.engineers = engineers;
 	}
 
-	public ScienceVessel(String model, int speed, int range, int price, int engineers) {
-		super(model, speed, range, price);
+	public ScienceVessel(String model, int speed, int range, int price, String pilot, int engineers) {
+		super(model, speed, range, price, pilot);
 		this.engineers = engineers;
 	}
 
@@ -67,7 +67,7 @@ public class ScienceVessel extends Starship implements Support {
 		StringBuilder builder = new StringBuilder();
 		builder.append("ScienceVessel [engineers=").append(engineers).append(", model=").append(model)
 				.append(", speed=").append(speed).append(", range=").append(range).append(", price=").append(price)
-				.append(", flightTime()=").append(flightTime()).append(" hours.]");
+				.append(", flightTime=").append(flightTime()).append(" hours").append(", pilot=").append(pilot);
 		return builder.toString();
 	}
 

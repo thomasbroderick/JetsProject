@@ -22,8 +22,8 @@ public class Cruiser extends Starship implements Battle, Command {
 		this.missiles = missiles;
 	}
 
-	public Cruiser(String model, int speed, int range, int price) {
-		super(model, speed, range, price);
+	public Cruiser(String model, int speed, int range, int price, String pilot) {
+		super(model, speed, range, price, pilot);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -75,7 +75,7 @@ public class Cruiser extends Starship implements Battle, Command {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Cruiser [shields=").append(shields).append(", missiles=").append(missiles).append(", model=")
 				.append(model).append(", speed=").append(speed).append(", range=").append(range).append(", price=")
-				.append(price).append(", flightTime()=").append(flightTime()).append(" hours.]");
+				.append(price).append(", flightTime=").append(flightTime()).append(" hours").append(", pilot=").append(pilot);
 		return builder.toString();
 	}
 
