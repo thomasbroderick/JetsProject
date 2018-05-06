@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class StarPort {
 	private Starship[] ships;
 	private int shipCount = 5;
+	Scanner kb = new Scanner(System.in);
 
 	public StarPort() {
 		// TODO Auto-generated constructor stub
@@ -35,15 +36,28 @@ public class StarPort {
 			}
 		}
 	}
-
 	public void flyAllShips() {
 		for (int i = 0; i < ships.length; i++) {
 			Starship starship = ships[i];
 			if (starship != null) {
 				starship.fly();
+			}
+		}
+	}
+
+
+	public void displayShipChoices() {
+		int shipToFly;
+		System.out.println("Which ship would you like to fly?");
+		for (int i = 0; i < ships.length; i++) {
+			Starship starship = ships[i];
+			if (starship != null) {
+				System.out.println(i + ": " + starship.getClass().getSimpleName() + " " + starship.model);
 
 			}
 		}
+		shipToFly = kb.nextInt();
+		ships[shipToFly].fly();
 	}
 
 	public void findFastestShip() {
@@ -92,7 +106,6 @@ public class StarPort {
 
 	public StarshipImpl createStarship() {
 		StarshipImpl newShip = new StarshipImpl();
-		Scanner kb = new Scanner(System.in);
 
 		System.out.println("What is the model of the new Starship?");
 		newShip.model = kb.nextLine();
@@ -110,14 +123,16 @@ public class StarPort {
 		ships[shipCount] = sI;
 		shipCount++;
 	}
+	
+	
 
 	public void displayUserMenu() {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("1. List fleet\n" + "2. Fly all Starships\n" + "3. View fastest Starship\n"
 				+ "4. View Starship with longest range\n" + "5. Send Away Teams\n" + "6. Add a new Starship\n"
-				+ "7. Quit");
+				+ "7. Fly one Starship\n" + "8. Quit");
 		String choice = kb.nextLine();
-		while (!choice.equals("7")) {
+		while (!choice.equals("8")) {
 			switch (choice) {
 			case "1":
 				printAllShips();
@@ -138,11 +153,13 @@ public class StarPort {
 				addNewStarship(createStarship());
 				break;
 			case "7":
+				displayShipChoices();
+			case "8":
 				System.exit(0);
 			}
 			System.out.println("1. List fleet\n" + "2. Fly all Starships\n" + "3. View fastest Starship\n"
 					+ "4. View Starship with longest range\n" + "5. Send Away Teams\n" + "6. Add a new Starship\n"
-					+ "7. Quit");
+					+ "7. Fly one Starship\n" + "8. Quit");
 			choice = kb.nextLine();
 		}
 	}
