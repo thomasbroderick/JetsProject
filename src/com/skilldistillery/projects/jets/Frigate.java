@@ -16,7 +16,8 @@ public class Frigate extends Starship implements Battle, Exploration {
 	@Override
 	public void sendAwayTeam() {
 		// TODO Auto-generated method stub
-
+		System.out.println("The " + getClass().getSimpleName() + " " +
+		this.model + " beams its away team to the surface of an alien world.");
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class Frigate extends Starship implements Battle, Exploration {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Frigate [model=").append(model).append(", speed=").append(speed).append(", range=")
-				.append(range).append(", price=").append(price).append(", flightTime()=").append(flightTime())
+				.append(range).append(" hours, price=").append(price).append(", flightTime()=").append(flightTime())
 				.append("]");
 		return builder.toString();
 	}

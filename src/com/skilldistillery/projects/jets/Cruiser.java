@@ -75,7 +75,7 @@ public class Cruiser extends Starship implements Battle, Command {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Cruiser [shields=").append(shields).append(", missiles=").append(missiles).append(", model=")
 				.append(model).append(", speed=").append(speed).append(", range=").append(range).append(", price=")
-				.append(price).append(", flightTime()=").append(flightTime()).append("]");
+				.append(price).append(", flightTime()=").append(flightTime()).append(" hours.]");
 		return builder.toString();
 	}
 

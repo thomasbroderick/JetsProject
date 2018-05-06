@@ -4,15 +4,11 @@ import java.util.Scanner;
 
 public class StarPort {
 	private Starship[] ships;
+	private int shipCount = 5;
 
 	public StarPort() {
 		// TODO Auto-generated constructor stub
 	}
-
-
-		
-
-	
 
 	public void run() {
 		ships = new Starship[100];
@@ -26,7 +22,6 @@ public class StarPort {
 		ships[3] = sv1;
 		StarshipImpl si1 = new StarshipImpl("Enterprise", 1000, 9900, 1000000);
 		ships[4] = si1;
-		System.out.println(ships[0]);
 		displayUserMenu();
 
 	}
@@ -41,21 +36,113 @@ public class StarPort {
 		}
 	}
 
+	public void flyAllShips() {
+		for (int i = 0; i < ships.length; i++) {
+			Starship starship = ships[i];
+			if (starship != null) {
+				starship.fly();
+
+			}
+		}
+	}
+
+	public void findFastestShip() {
+		int j = 0;
+		int max = ships[0].speed;
+		for (int i = 0; i < ships.length; i++) {
+			Starship starship = ships[i];
+			if (starship != null) {
+				if (starship.speed > max) {
+					max = starship.speed;
+					j = i;
+				}
+
+			}
+		}
+		System.out.println(ships[j].toString());
+	}
+
+	public void findLongestRange() {
+		int j = 0;
+		int max = ships[0].range;
+		for (int i = 0; i < ships.length; i++) {
+			Starship starship = ships[i];
+			if (starship != null) {
+				if (starship.range > max) {
+					max = starship.range;
+					j = i;
+				}
+
+			}
+		}
+		System.out.println(ships[j].toString());
+	}
+
+	public void sendAwayTeams() {
+		for (int i = 0; i < ships.length; i++) {
+			Starship starship = ships[i];
+			if (starship != null) {
+				if (starship instanceof Frigate) {
+					((Frigate) starship).sendAwayTeam();
+				}
+
+			}
+		}
+	}
+
+	public StarshipImpl createStarship() {
+		StarshipImpl newShip = new StarshipImpl();
+		Scanner kb = new Scanner(System.in);
+
+		System.out.println("What is the model of the new Starship?");
+		newShip.model = kb.nextLine();
+		System.out.println("What is the speed of the new Starship in MPH?");
+		newShip.speed = kb.nextInt();
+		System.out.println("What is the range of the new Starship in miles?");
+		newShip.range = kb.nextInt();
+		System.out.println("What is the price of the new Starship in Federation Credits?");
+		newShip.price = kb.nextLong();
+
+		return newShip;
+	}
+
+	public void addNewStarship(StarshipImpl sI) {
+		ships[shipCount] = sI;
+		shipCount++;
+	}
+
 	public void displayUserMenu() {
 		Scanner kb = new Scanner(System.in);
-		System.out.println("1. List fleet\n" + "2. Fly all jets\n" + "3. View fastest jet\n"
-				+ "4. View jet with longest range\n" + "5. Add a jet to Fleet\n" + "6. Quit");
+		System.out.println("1. List fleet\n" + "2. Fly all Starships\n" + "3. View fastest Starship\n"
+				+ "4. View Starship with longest range\n" + "5. Send Away Teams\n" + "6. Add a new Starship\n"
+				+ "7. Quit");
 		String choice = kb.nextLine();
-		while (!choice.equals("6")) {
+		while (!choice.equals("7")) {
 			switch (choice) {
 			case "1":
 				printAllShips();
 				break;
+			case "2":
+				flyAllShips();
+				break;
+			case "3":
+				findFastestShip();
+				break;
+			case "4":
+				findLongestRange();
+				break;
+			case "5":
+				sendAwayTeams();
+				break;
 			case "6":
+				addNewStarship(createStarship());
+				break;
+			case "7":
 				System.exit(0);
 			}
-			System.out.println("1. List fleet\n" + "2. Fly all jets\n" + "3. View fastest jet\n"
-					+ "4. View jet with longest range\n" + "5. Add a jet to Fleet\n" + "6. Quit");
+			System.out.println("1. List fleet\n" + "2. Fly all Starships\n" + "3. View fastest Starship\n"
+					+ "4. View Starship with longest range\n" + "5. Send Away Teams\n" + "6. Add a new Starship\n"
+					+ "7. Quit");
 			choice = kb.nextLine();
 		}
 	}

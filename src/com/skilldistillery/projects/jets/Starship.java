@@ -10,8 +10,12 @@ public abstract class Starship {
 	public int flightTime() {
 		return range/speed;
 	}
+	public Starship() {
+		
+	}
 	
-	public Starship(String model, int speed, int range, int price) {
+	
+	public Starship(String model, int speed, int range, long price) {
 		super();
 		this.model = model;
 		this.speed = speed;
@@ -24,7 +28,7 @@ public abstract class Starship {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Starship [model=").append(model).append(", speed=").append(speed).append(", range=")
 				.append(range).append(", price=").append(price).append(", flightTime()=").append(flightTime())
-				.append("]");
+				.append(" hours.]");
 		return builder.toString();
 	}
 

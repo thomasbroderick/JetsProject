@@ -67,7 +67,7 @@ public class ScienceVessel extends Starship implements Support {
 		StringBuilder builder = new StringBuilder();
 		builder.append("ScienceVessel [engineers=").append(engineers).append(", model=").append(model)
 				.append(", speed=").append(speed).append(", range=").append(range).append(", price=").append(price)
-				.append(", flightTime()=").append(flightTime()).append("]");
+				.append(", flightTime()=").append(flightTime()).append(" hours.]");
 		return builder.toString();
 	}
 
